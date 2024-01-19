@@ -1,29 +1,29 @@
 <img align="left" src="images/galah.png" width="210px">
 
-TL;DR: Galah (/ɡəˈlɑː/ - pronounced ‘guh-laa’) is an LLM (Large Language Model) powered web honeypot, currently compatible with the OpenAI API, that is able to mimic various applications and dynamically respond to arbitrary HTTP requests.
+TL;DR: Galah (/ɡəˈlɑː/ - pronounced ‘guh-laa’) is an LLM (Large Language Model) powered web honeypot, currently compatible with the Perplexity AI, that is able to mimic various applications and dynamically respond to arbitrary HTTP requests.
 
 ## Description
 
 Named after the clever Australian parrot known for its mimicry, Galah mirrors this trait in its functionality. Unlike traditional web honeypots that rely on a manual and limiting method of emulating numerous web applications or vulnerabilities, Galah adopts a novel approach. This LLM-powered honeypot mimics various web applications by dynamically crafting relevant (and occasionally foolish) responses, including HTTP headers and body content, to arbitrary HTTP requests. Fun fact: in Aussie English, [Galah](https://www.macquariedictionary.com.au/blog/article/728/) also means fool!
 
-I’ve deployed a cache for the LLM-generated responses (the cache duration can be customized in the config file) to avoid generating multiple responses for the same request and to reduce the cost of the OpenAI API. The cache stores responses per port, meaning if you probe a specific port of the honeypot, the generated response won’t be returned for the same request on a different port.
+I’ve deployed a cache for the LLM-generated responses (the cache duration can be customized in the config file) to avoid generating multiple responses for the same request and to reduce the cost of the Perplexity AI API. The cache stores responses per port, meaning if you probe a specific port of the honeypot, the generated response won’t be returned for the same request on a different port.
 
 The prompt is the most crucial part of this honeypot! You can update the prompt in the config file, but be sure not to change the part that instructs the LLM to generate the response in the specified JSON format.
 
-> **Note:** Galah was a fun weekend project I created to evaluate the capabilities of LLMs in generating HTTP messages, and it is not intended for production use. The honeypot may be fingerprinted based on its response time, non-standard, or sometimes weird responses, and other network-based techniques. Use this tool at your own risk, and be sure to set usage limits for your OpenAI API.
+> **Note:** Galah was a fun weekend project I created to evaluate the capabilities of LLMs in generating HTTP messages, and it is not intended for production use. The honeypot may be fingerprinted based on its response time, non-standard, or sometimes weird responses, and other network-based techniques. Use this tool at your own risk, and be sure to set usage limits for your Perplexity AI.
 
 ### Future Enhancements
 
-- Rule-Based Response: The new version of Galah will employ a dynamic, rule-based approach, adding more control over response generation. This will further reduce OpenAI API costs and increase the accuracy of the generated responses.
+- Rule-Based Response: The new version of Galah will employ a dynamic, rule-based approach, adding more control over response generation. This will further reduce Perplexity AI costs and increase the accuracy of the generated responses.
 
-- Response Database: It will enable you to generate and import a response database. This ensures the honeypot only turns to the OpenAI API for unknown or new requests. I’m also working on cleaning up and sharing my own database.
+- Response Database: It will enable you to generate and import a response database. This ensures the honeypot only turns to the Perplexity AI for unknown or new requests. I’m also working on cleaning up and sharing my own database.
 
 - Support for Other LLMs.
 
 ## Getting Started
 
 - Ensure you have Go version 1.20+ installed.
-- Create an OpenAI API key from [here](https://platform.openai.com/api-keys).
+- Create an Perplexity AI API key from [here](https://www.perplexity.ai/settings/api).
 - If you want to serve over HTTPS, generate TLS certificates.
 - Clone the repo and install the dependencies.
 - Update the `config.yaml` file.
